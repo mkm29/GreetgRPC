@@ -1,3 +1,3 @@
 #!/bin/bash
 
-protoc --go-grpc_out=. --go_out=. greet/greetpb/greet.proto
+protoc -I . --go_out=. --go-grpc_out=. greet/greetpb/greet.proto

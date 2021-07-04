@@ -13,7 +13,14 @@ import (
 type server struct{}
 
 func (*server) Greet(ctx context.Context, req *greetpb.GreetRequest) (*greetpb.GreetResponse, error) {
+	fmt.Printf("\n[Greet][server.go][(*server)Greet] => *greetpb.GreetRequest: %v\n", req)
+	firstName := req.GetGreeting().GetFirstName()
+	result := "Hello " + firstName
+	response := &greetpb.GreetResponse{
+		Result: result,
+	}
 
+	return response, nil
 }
 
 func main() {
